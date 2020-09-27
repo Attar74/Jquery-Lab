@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Lab PDF</title>
+    <style>
+        
+    </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function(){
+        $("p, a").css("backgroundColor", "red");
+        $("a.a").css("border", "3px solid green");
+        $("div#example2 img").css("border","5px solid yellow").css("width","300px").css("height","250px");
+        $("div > p").css("color", "blue").css("backgroundColor", "aqua");
+        $("div > p:eq(0)").css("color","green");
+        $("p:first ~ p").css("color", "red").css("backgroundColor", "aqua");
+        $("a[href ^='http']").css("color", "red");
+        //9
+        $("table > tr:first").css("background-color", "red");
+        $("table tr:first").css("background-color", "red");
+        $("table:first tr td:last").css("background-color", "red");
+        $("table tr td:odd").css("background-color", "red");
+        $("table tr td:nth-child(odd)").css("background-color", "red");
+        $("input").css("background-color","blue");
+});
+   
+</script>
+</head>
+<body>
+    <div id="example">
+        <p>This is p1</p>
+        <p>This is p2</p>
+        <p>This is p3</p>
+        <p>This is p4</p>
+    </div>
+    <div id="example1">
+        <a class="a">this is a1</a><br><br>
+        <a>this is a2</a><br><br>
+        <a class="a">this is a3</a><br><br>
+        <a>this is a4</a>
+    </div>
+        <p>This is p1</p>
+        <p>This is p2</p>
+        <p>This is p3</p>
+        <p>This is p4</p>
+    <div id="example2">
+        <img src="a.JPG">
+    </div>
+    <input type="text" />
+    <input type="text" />
+    <input type="text" />
+
+</body>
+</html>

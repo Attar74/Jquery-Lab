@@ -1,0 +1,65 @@
+<html>
+<head>
+<style> 
+ 
+  div { width:60px; height:60px; margin:5px; float:left; }
+  .box {
+    border: 1px solid gray;
+    background-color: #b3c8d0;
+    font-size:14pt;
+    padding-left: 10pt;
+    padding-right: 10pt;
+    min-height: 200px;
+    width: 300px;
+	float:none;
+	margin-top:70px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function() {
+        var redDiv = $('#r');
+        var greenDiv = $('#g');
+        var blueDiv = $('#b');
+        var pinkDiv = $('#p');
+
+        redDiv.click(function(e){
+            if(redDiv.hasClass("0")){
+                redDiv.removeClass('0');
+                $('body').append(redDiv.clone(true).addClass('0'));
+            }
+        });
+        greenDiv.click(function(e){
+            if(greenDiv.hasClass("0")){
+                greenDiv.removeClass('0');
+                $('body').append(greenDiv.clone(true).addClass('0'));
+            }
+        });
+        blueDiv.click(function(e){
+            if(blueDiv.hasClass("0")){
+                blueDiv.removeClass('0');
+                $('body').append(blueDiv.clone(true).addClass('0'));
+            }
+        });
+        pinkDiv.click(function(e){
+            if(pinkDiv.hasClass("0")){
+                pinkDiv.removeClass('0');
+                $('body').append(pinkDiv.clone(true).addClass('0'));
+            }
+        });
+        
+    })
+
+</script>
+</head>
+<body>
+
+  <span id="result">&nbsp;</span>
+  <div style="background-color:blue;" class="0" id="b"></div>
+  <div style="background-color:green" class="0" id="g"></div>
+  <div style="background-color:pink;" class="0" id="p"></div>
+  <div style="background-color:red;" class="0" id="r"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        #finalTable tr td {
+            padding: 5px 50px 5px 5px;
+        }
+    </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function() {
+        var finalTable = $('#finalTable'),
+        addBtn = $('#addBtn'),
+        userName = $('#userName'),
+        userGrade = $('#userGrade');
+        var j = 0;
+        addBtn.click(function(){
+            var dep = $('table tr td select option:selected');
+            if(userName.val().length == 0 || userGrade.val().length == 0) {
+                alert('All fileds below are required');
+            } else {
+                finalTable.show();
+                var tr = $(`<tr></tr>`);
+                (j%2==0)?tr.css("background-color","aqua"):tr.css("background-color","yellow");
+                j++;
+                var del = $(`<a href="#" class= "del">Delete</a>`);
+                let data= [userName.val(),userGrade.val(),dep.val(),del]
+                for(var i =0; i < 4; i++){
+                    var td = $('<td></td>');
+                    var p = data[i];
+                    td.append(p);
+                    tr.append(td);
+                    userName.val(null);
+                    userGrade.val(null);
+                }
+                finalTable.append(tr);
+            }
+        });
+        finalTable.click(function(e){
+            if(e.target.className == "del"){
+                const tr = e.target.parentElement.parentElement;
+                /*let co = confirm('you will delete that row');*/
+                tr.remove();
+                j--;
+                if(j==0) finalTable.hide();
+            }
+        })
+                
+    });
+</script>
+</head>
+<body>
+    <table  style="border:3px solid green;font-size:large">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" id="userName" /></td>
+        </tr>
+        <tr>
+            <td>Grade</td>
+            <td><input type="text" id="userGrade" /> </td>
+        </tr>
+        <tr>
+            <td>Department</td>
+            <td>
+                <select>
+                    <option>SD</option><option>Java</option><option>Network</option>
+                </select> 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="Add" id="addBtn"/> 
+            </td>
+        </tr>
+    </table>
+
+    <table style="width:200px; display: none; margin-top: 2%;" id="finalTable">
+        <tr style="background-color: antiquewhite">
+            <td>Name</td>
+            <td>Grade</td>
+            <td>Department</td>
+            <td>Delete</td>
+        </tr>
+    </table>
+
+</body>
+</html>
